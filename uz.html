@@ -169,12 +169,6 @@
                                     <li><a href="tel:+998912351995">Связаться</a></li>
                                 </ul>
                             </nav>
-
-
-
-
-
-    
     <main>
         <!--? slider Area Start-->
         <section class="slider-area hero-overly">
@@ -706,26 +700,6 @@
 <!-- Jquery Plugins, main Jquery -->	
 <script src="./assets/js/plugins.js"></script>
 <script src="./assets/js/main.js"></script>
-<script>
-let start // set on the first step to the timestamp provided
-const el = document.getElementById('count') // get the element
-const final = parseInt(el.textContent, 10) // parse out the final number
-const duration = 4000 // duration in ms
-const step = ts => {
-  if (!start) {
-    start = ts
-  }
-  // get the time passed as a fraction of total duration
-  let progress = (ts - start) / duration 
-  el.textContent = Math.floor(progress * final) // set the text
-  if (progress < 1) {
-    // if we're not 100% complete, request another animation frame
-    requestAnimationFrame(step) 
-  }
-}
-// start the animation
-requestAnimationFrame(step)
-</script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
