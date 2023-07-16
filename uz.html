@@ -208,6 +208,48 @@
                 </div>
             </div>
         </section>
+
+
+
+
+   <section class="services-area pt-top border-bottom pb-20">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-7 col-lg-8">
+                        <div class="section-tittle text-center mb-55">
+                            <span class="element">Биз билан боғланинг</span>
+                            <h2>Исмингиз ва телефон рақамингизни ёзиб қолдиринг яқин орада мутахасисларимиз сиз билан боғланишади</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="calculate__container">
+                    <div class="calculate__container">
+                        <label for="name"><div class="calculate__title" data-aos="fade-right">
+                                <h2>Исмингизни киритинг:</h2>
+                        </div></label>
+                        <input class="single-input" data-aos="fade-right" type="text" id="name" value="" required placeholder="Исмингизни киритинг:">
+                        <br><br>
+                        <label for="number"><div class="calculate__title" data-aos="fade-right">
+                            <h2>Телефон рақамингизни киритинг:</h2>
+                        </div></label>
+                        <input class="single-input" data-aos="fade-right" type="text" id="number" value="" required placeholder="Телефон рақамингизни киритинг:">
+                        <br>
+                        <p class="pb">
+                            <button data-aos="fade-down" class="genric-btn info circle arrow" style="background-color: #6785FF" onclick="alicoder()">Буюртма бериш</button>
+                        </p>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+        
         <!-- slider Area End-->
         <!--? Services Area Start -->
         <section class="services-area pt-top border-bottom pb-20 mb-60">
@@ -696,5 +738,45 @@ const step = ts => {
 // start the animation
 requestAnimationFrame(step)
 </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+            <script>
+                function alicoder() {
+                    let name = document.getElementById('name').value;
+                    let number = document.getElementById('number').value;
+                    event.preventDefault();
+                    let telegram_bot_id = "760680152:AAEfcWLM4tq1FCm9VexcpM6emwpkZCplqOY";
+                    let chat_id = -1001910240653; // 1111 o'rniga Habar borishi kerak bo'lgan ChatID
+                    let message = `🔸Ismi: ${name};\n🔸Telefon raqami: ${number};\nBog\'lanish esdan chiqmasin`;
+                    let settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage",
+                        "method": "POST",
+                        "headers": {
+                            "Content-Type": "application/json",
+                            "cache-control": "no-cache"
+                        },
+                        "data": JSON.stringify({
+                            "chat_id": chat_id,
+                            "text": message
+                        })
+                    };
+                    $.ajax(settings).done(function(response) {
+                        alert('Спасибо за заявку, в ближайшее время мы свяжемся с вами!');
+                        // window.location.href = 'index.html';
+                    });
+                    document.getElementById('name').value = '';
+                    document.getElementById('number').value = '';
+                    return false;
+                };
+            </script>
+
+
+
+
+
+    
 </body>
 </html>
